@@ -23,23 +23,23 @@ jobs:
 
       - name: Check secrets are configured
         env:
-          MY_EMAIL: ${{ secrets.MY_EMAIL }}
-          MY_PASSWORD: ${{ secrets.MY_PASSWORD }}
+          GMAIL_EMAIL: ${{ secrets.GMAIL_EMAIL }}
+          MY_GMAIL_APP_PWD: ${{ secrets.MY_GMAIL_APP_PWD }}
         run: |
-          if [ -z "$MY_EMAIL" ]; then
-            echo "MY_EMAIL secret is not set!"
+          if [ -z "$GMAIL_EMAIL" ]; then
+            echo "GMAIL_EMAIL secret is not set!"
             echo "Go to Settings > Secrets > Actions and add it."
             exit 1
           else
-            echo "MY_EMAIL is configured"
+            echo "GMAIL_EMAIL is configured"
           fi
 
-          if [ -z "$MY_PASSWORD" ]; then
-            echo "MY_PASSWORD secret is not set!"
+          if [ -z "$MY_GMAIL_APP_PWD" ]; then
+            echo "MY_GMAIL_APP_PWD secret is not set!"
             echo "Go to Settings > Secrets > Actions and add it."
             exit 1
           else
-            echo "MY_PASSWORD is configured"
+            echo "MY_GMAIL_APP_PWD is configured"
           fi
 
           echo ""
